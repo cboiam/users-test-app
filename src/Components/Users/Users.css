@@ -1,0 +1,53 @@
+.Users {
+  width: 100%;
+  padding: 50px;
+  box-sizing: border-box;
+}
+
+.Users-Header {
+  margin: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Users-Divider {
+  height: 0px;
+  border: 2px solid #f1f1f1;
+  border-radius: 2px;
+  width: 60%;
+}
+
+.Users-Search {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  color: #f1f1f1;
+  border: 2px solid #f1f1f1;
+  border-radius: 7px;
+}
+
+.Users-Search-Input {
+  width: 300px;
+  border: none;
+  outline: none;
+}
+
+.Users-Search-Icon {
+  padding: 0 10px;
+  color: #999999;
+}
+
+.Users-Title {
+  margin: 0;
+  font-weight: normal;
+}
+
+.Users-Table {
+  width: 100%;
+  text-align: left;
+}
+
+.Users-Table-Head {
+  padding: 20px 10px;
+}

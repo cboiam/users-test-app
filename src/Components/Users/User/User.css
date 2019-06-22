@@ -1,0 +1,32 @@
+.User {
+  height: 50px;
+}
+
+.User:hover {
+  background: #e3e3e3;
+}
+
+.User td {
+  padding-left: 9px;
+  padding-right: 3px;
+}
+
+.User td:last-child {
+  padding-right: 10px;
+}
+
+.User td a {
+  text-decoration: none;
+}
+
+.Even {
+  background: #f8f8f8;
+}
+
+.User-Remove {
+  visibility: hidden;
+}
+
+.User:hover .User-Remove {
+  visibility: visible;
+}
