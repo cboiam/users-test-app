@@ -4,6 +4,7 @@ import "./App.css";
 import Users, { getRandomOption, rideInGroupOptions, dayOfTheWeekOptions } from "./Components/Users/Users";
 import Axios from "axios";
 import Registration from "./Components/Registration/Registration";
+import Breadcrumb from "./Components/Breadcrumb/Breadcrumb";
 
 class App extends React.Component {
   state = {
@@ -47,9 +48,10 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <div className="App">
-          <Route path="/" exact render={() => <Redirect to="/users" />} />
-          <Route path="/users" exact render={() => <Users users={this.state.users} deleteUser={this.deleteUser} />} />
-          <Route path="/users/new" render={() => <Registration addUser={this.addUser} />} />
+          <Route path="/" component={props => <Breadcrumb {...props} />} />
+          <Route path="/" exact component={() => <Redirect to="/users" />} />
+          <Route path="/users" exact component={() => <Users users={this.state.users} deleteUser={this.deleteUser} />} />
+          <Route path="/users/new" component={() => <Registration addUser={this.addUser} />} />
         </div>
       </BrowserRouter>
     );

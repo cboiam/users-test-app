@@ -16,6 +16,14 @@ code {
   color: #3ac5a9;
 }
 
+.Primary-Action {
+  color: #777777;
+}
+
+.Primary-Action:hover {
+  color: #3ac5a9;
+}
+
 .Background-Primary {
   background: #3ac5a9;
 }
