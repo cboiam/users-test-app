@@ -11,14 +11,21 @@
   justify-content: space-between;
 }
 
+.Users-Title h1 {
+  margin: 0;
+  font-weight: normal;
+}
+
 .Users-Divider {
   height: 0px;
   border: 2px solid #f1f1f1;
   border-radius: 2px;
   width: 60%;
+  margin: 0 10px;
 }
 
 .Users-Search {
+  min-width: 170px;
   padding: 10px;
   display: flex;
   align-items: center;
@@ -28,7 +35,7 @@
 }
 
 .Users-Search-Input {
-  width: 300px;
+  width: 90%;
   border: none;
   outline: none;
 }
@@ -38,12 +45,11 @@
   color: #999999;
 }
 
-.Users-Title {
-  margin: 0;
-  font-weight: normal;
+.Users-Table {
+  overflow: auto;
 }
 
-.Users-Table {
+.Users-Table table {
   width: 100%;
   text-align: left;
 }

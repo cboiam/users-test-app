@@ -1,0 +1,94 @@
+.Option-Container {
+  margin: 10px 20px;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.No-Instructions {
+  margin-bottom: 26px;
+}
+
+.Option-Group {
+  margin-top: 9px;
+}
+
+.Option-Input-Label {
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  margin-right: 5px;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+}
+
+.Option-Input-Label.Radio {
+  margin-right: 40px;
+}
+
+.Option-Input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.Option-Checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #ffffff;
+}
+
+.Option-Input-Label.Radio .Option-Checkmark{
+  border-radius: 50%;
+}
+
+.Option-Input-Label.Checkbox .Option-Checkmark{
+  border-radius: 5px;
+}
+
+.Option-Checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.Option-Input:checked ~ .Border-Primary-Options,
+.Option-Input-Label:hover .Option-Input ~ .Border-Primary-Options {
+  border-color: #3ac5a9;
+}
+
+.Option-Input-Label .Option-Input:checked ~ .Option-Checkmark:after {
+  display: block;
+}
+
+.Option-Input-Label.Radio .Option-Checkmark:after {
+  top: 5px;
+  left: 5px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: black;
+}
+
+.Option-Input-Label.Checkbox .Option-Checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+@media (min-width: 1080px) {  
+  .Option-Group {
+    display: flex;
+  }
+}

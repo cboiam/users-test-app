@@ -3,64 +3,60 @@ import User from "./User/User";
 import "./Users.css";
 import Axios from "axios";
 
-const rideInGroupOptions = ["Never", "Sometiems", "Always"];
-const dayOfTheWeekOptions = ["Never", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Weekends", "Week days", "Every day"];
+export const rideInGroupOptions = ["Always", "Sometimes", "Never"];
+export const dayOfTheWeekOptions = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "None", "Weekends", "Week days", "Every day"];
 
-const getRandomOption = options => {
+export const getRandomOption = options => {
   const index = Math.floor((Math.random() * options.length));
   return options[index];
 }
 
 class Users extends React.Component {
   state = {
-    users: [],
+    filter: "",
     filteredUsers: [],
     posts: [],
     photos: []
   };
 
+  getPosts = () => Axios.get("https://jsonplaceholder.typicode.com/posts");
+  getPhotos = () => Axios.get("https://jsonplaceholder.typicode.com/photos");
+
   componentWillMount() {
-    Axios.get("https://jsonplaceholder.typicode.com/users").then(result => {
-      this.setState({ users: result.data, filteredUsers: result.data });
-    });
+    Axios.all([this.getPosts(), this.getPhotos()])
+      .then(Axios.spread((posts, photos) => {
+        this.setState({
+          filteredUsers: this.props.users,
+          posts: posts.data,
+          photos: photos.data
+        });
 
-    Axios.get("https://jsonplaceholder.typicode.com/posts").then(result => {
-      this.setState({ posts: result.data });
-    });
-
-    Axios.get("https://jsonplaceholder.typicode.com/photos").then(result => {
-      this.setState({ photos: result.data });
-    });
-  }
-
-  deleteUser = userId => {
-    const users = [...this.state.users];
-    const userIndex = users.findIndex(user => user.id === userId);
-    users.splice(userIndex, 1);
-    this.setState({ users: users, filteredUsers: users });
+        this.filterUsers(this.state.filter);
+      }));
   }
 
   mapUsers = () => {
     return this.state.filteredUsers.map((user, index) => {
       const isEven = (index + 1) % 2 === 0;
-      const rideInGroup = getRandomOption(rideInGroupOptions);
-      const dayOfTheWeek = getRandomOption(dayOfTheWeekOptions);
       const posts = this.state.posts.filter(post => post.userId === user.id).length;
       return <User {...user}
         isEven={isEven}
         key={user.id}
         posts={posts}
-        rideInGroup={rideInGroup}
-        dayOfTheWeek={dayOfTheWeek}
-        deleteUser={this.deleteUser}
+        deleteUser={this.props.deleteUser}
       />;
     });
   };
 
-  filterUsers = ({ target }) => {
-    const users = this.state.users.filter(user => {
+  onFilterChange = ({ target }) => {
+    this.setState({ filter: target.value });
+    this.filterUsers(target.value);
+  };
+
+  filterUsers = value => {
+    const users = this.props.users.filter(user => {
       const [username, name] = [user.username.toLowerCase(), user.name.toLowerCase()];
-      return username.indexOf(target.value) >= 0 || name.indexOf(target.value) >= 0;
+      return username.indexOf(value) >= 0 || name.indexOf(value) >= 0;
     });
 
     this.setState({ filteredUsers: users });
@@ -70,8 +66,8 @@ class Users extends React.Component {
     return (
       <div className="Users">
         <div className="Users-Header">
-          <div className="Users-Item">
-            <h1 className="Users-Title">Users</h1>
+          <div className="Users-Title">
+            <h1>Users</h1>
           </div>
           <div className="Users-Item Users-Divider" />
           <div className="Users-Item Users-Search">
@@ -80,12 +76,12 @@ class Users extends React.Component {
               className="Users-Search-Input"
               type="text"
               placeholder="Filter table content"
-              onChange={this.filterUsers}
+              onChange={this.onFilterChange}
             />
           </div>
         </div>
-        <div>
-          <table className="Users-Table" cellspacing="0" cellpadding="0">
+        <div className="Users-Table">
+          <table cellSpacing="0" cellPadding="0">
             <thead>
               <tr>
                 <td className="Users-Table-Head">Username</td>

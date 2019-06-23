@@ -15,3 +15,27 @@ code {
 .Primary {
   color: #3ac5a9;
 }
+
+.Background-Primary {
+  background: #3ac5a9;
+}
+
+.Border-Primary {
+  border: 1px solid #3ac5a9;
+}
+
+.Border-Primary-Input {
+  border: 1px solid #e3e3e3;
+}
+
+.Border-Primary-Input:focus, .Border-Primary-Input:hover {
+  border-color: #3ac5a9;
+}
+
+.Border-Primary-Options {
+  border: 1px solid #e3e3e3;
+}
+
+.Border-Primary-Options:hover {
+  border-color: #3ac5a9;
+}

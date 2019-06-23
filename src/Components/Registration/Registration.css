@@ -1,0 +1,62 @@
+.Registration {
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+.Registration-Header {
+  margin: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Registration-Title h1 {
+  margin: 0;
+  font-weight: normal;
+}
+  
+.Registration-Divider {
+  height: 0px;
+  border: 2px solid #f1f1f1;
+  border-radius: 2px;
+  margin-left: 10px;
+  width: 85%;
+}
+
+.Registration-Form {
+  width: 80%;
+  margin: auto;
+}
+
+.Registration-Container > div {
+  width: 100%;
+}
+
+.Registration-Actions {
+  text-align: left;
+  margin: 0 20px;
+}
+
+.Registration-Actions button {
+  padding: 10px 22px;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.Registration-Actions .Save {
+  color: #ffffff;
+}
+
+.Registration-Actions .Discard {
+  color: #777777;
+  background: #e3e3e3;
+}
+
+@media (min-width: 1080px) {
+  .Registration-Container {
+    display: flex;
+  }
+}
