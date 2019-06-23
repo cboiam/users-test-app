@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Redirect } from "react-router-dom";
 import "./App.css";
 import Users, { getRandomOption, rideInGroupOptions, dayOfTheWeekOptions } from "./Components/Users/Users";
 import Axios from "axios";
@@ -47,10 +47,11 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <div className="App">
-          <Route path="/" component={() => <Users users={this.state.users} deleteUser={this.deleteUser} />} />
-          <Route path="/" component={() => <Registration addUser={this.addUser} />} />
+          <Route path="/" exact render={() => <Redirect to="/users" />} />
+          <Route path="/users" exact render={() => <Users users={this.state.users} deleteUser={this.deleteUser} />} />
+          <Route path="/users/new" render={() => <Registration addUser={this.addUser} />} />
         </div>
-      </BrowserRouter >
+      </BrowserRouter>
     );
   }
 }
