@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import User from "./User/User";
 import "./Users.css";
 import Axios from "axios";
@@ -11,7 +11,7 @@ export const getRandomOption = options => {
   return options[index];
 }
 
-class Users extends React.Component {
+class Users extends Component {
   state = {
     filter: "",
     filteredUsers: [],

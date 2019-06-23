@@ -1,9 +1,9 @@
-import React from "react";
+import React, { Component } from "react";
 import "./Registration.css";
 import Input, { inputTypes } from "./Input/Input";
 import Option from "./Option/Option";
 
-class Registration extends React.Component {
+class Registration extends Component {
     state = {
         form: {
             username: {

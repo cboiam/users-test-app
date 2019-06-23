@@ -1,12 +1,13 @@
-import React from "react";
+import React, { Component } from "react";
 import { BrowserRouter, Route, Redirect } from "react-router-dom";
 import "./App.css";
 import Users, { getRandomOption, rideInGroupOptions, dayOfTheWeekOptions } from "./Components/Users/Users";
 import Axios from "axios";
 import Registration from "./Components/Registration/Registration";
-import Breadcrumb from "./Components/Breadcrumb/Breadcrumb";
+import Breadcrumb from "./Components/Layout/Breadcrumb/Breadcrumb";
+import Header from "./Components/Layout/Header/Header";
 
-class App extends React.Component {
+class App extends Component {
   state = {
     users: []
   }
@@ -48,6 +49,7 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <div className="App">
+          <Header />
           <Route path="/" component={props => <Breadcrumb {...props} />} />
           <Route path="/" exact component={() => <Redirect to="/users" />} />
           <Route path="/users" exact component={() => <Users users={this.state.users} deleteUser={this.deleteUser} />} />

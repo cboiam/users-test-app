@@ -1,0 +1,28 @@
+.Header {
+    padding: 35px 75px;
+}
+
+.Header, .Header-Title {
+    display: flex;
+}
+
+.Header-Logo {
+    padding: 10px;
+    background: #3ac5a9;
+    border-radius: 5px;
+    height: 30px;
+}
+
+.Header-Logo i {
+    padding: 4px 6px;
+    color: #ffffff;
+    border: 3px solid;
+    border-radius: 5px;
+}
+
+.Header-App-Name {
+    margin: auto;
+    margin-left: 15px;
+    font-size: 1.6em;
+    font-weight: 500;
+}
