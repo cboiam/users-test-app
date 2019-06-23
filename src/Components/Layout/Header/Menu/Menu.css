@@ -1,0 +1,35 @@
+.Menu {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 50px;
+    width: 130%;
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    box-shadow: 2px 2px 5px 2px #e3e3e3, -2px -2px 5px 2px #e3e3e3;
+}
+
+.Menu.Active {
+    display: block;
+}
+
+.Menu-Item {
+    text-align: left;
+    padding: 12px 18px;
+}
+
+.Menu-Item:hover {
+    background: #f1f1f1;
+    color: #3ac5a9;
+    cursor: pointer;
+}
+
+.Menu-Separator {
+    margin: 0;
+    border-width: 0.5px;
+    color: #e3e3e3;
+    background: #e3e3e3;
+    border-color: #e3e3e3;
+}

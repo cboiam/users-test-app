@@ -10,7 +10,7 @@ import Header from "./Components/Layout/Header/Header";
 class App extends Component {
   state = {
     users: []
-  }
+  };
 
   componentWillMount() {
     Axios.get("https://jsonplaceholder.typicode.com/users").then(result => {
@@ -32,7 +32,7 @@ class App extends Component {
     users.splice(userIndex, 1);
 
     this.setState({ users });
-  }
+  };
 
   addUser = user => {
     const userIds = this.state.users.map(user => user.id);
@@ -43,12 +43,12 @@ class App extends Component {
     users.push(user);
 
     this.setState({ users });
-  }
+  };
 
   render() {
     return (
       <BrowserRouter>
-        <div className="App">
+        <div className="App" onClick={this.closeMenu}>
           <Header />
           <Route path="/" component={props => <Breadcrumb {...props} />} />
           <Route path="/" exact component={() => <Redirect to="/users" />} />

@@ -1,0 +1,43 @@
+.Profile {
+    display: flex;
+    position: relative;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333333;
+}
+
+.Profile > *:hover {
+    cursor: pointer;
+}
+
+.Profile-Image {
+    height: 40px;
+    width: 40px;
+    min-height: 40px;
+    min-width: 40px;
+}
+
+.Profile-Image.No-Image {
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.Profile-Image img {
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 50%;
+    height: inherit;
+    width: inherit;
+}
+
+.Profile-Image span {
+    line-height: 38px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.Profile-Name {
+    text-transform: capitalize;
+    margin: 0 10px;
+}

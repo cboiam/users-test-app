@@ -1,6 +1,9 @@
 .Registration {
     padding: 75px;
     box-sizing: border-box;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333333;
 }
 
 .Registration-Header {
@@ -34,7 +37,6 @@
 
 .Registration-Actions {
   text-align: left;
-  margin: 0 20px;
 }
 
 .Registration-Actions button {
@@ -44,6 +46,7 @@
   border: none;
   outline: none;
   cursor: pointer;
+  font-weight: 500;
 }
 
 .Registration-Actions .Save {

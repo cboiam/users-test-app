@@ -19,8 +19,8 @@ const user = props => {
       <td className="Primary">{props.address.city}</td>
       <td>{props.rideInGroup}</td>
       <td>{props.dayOfTheWeek}</td>
-      <td>{props.posts}</td>
-      <td>{props.albums == null ? 0 : props.albums}</td>
+      <td className="Primary">{props.posts}</td>
+      <td className="Primary">{props.albums == null ? 0 : props.albums}</td>
       <td>{props.photos == null ? 0 : props.photos}</td>
       <td onClick={() => props.deleteUser(user.id)}>
         <i className="fas fa-trash Primary User-Remove"></i>
