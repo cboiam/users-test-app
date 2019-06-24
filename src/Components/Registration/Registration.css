@@ -15,6 +15,7 @@
 
 .Registration-Title h1 {
   margin: 0;
+  font-size: 2.4em;
   font-weight: normal;
 }
   
@@ -26,9 +27,15 @@
   width: 85%;
 }
 
+.Registration-Form-Divider {
+  height: 0px;
+  border: 1px solid #f1f1f1;
+  border-radius: 2px;
+  margin: 0;
+}
+
 .Registration-Form {
-  width: 80%;
-  margin: auto;
+  margin: 30px 0;
 }
 
 .Registration-Container > div {
@@ -56,6 +63,16 @@
 .Registration-Actions .Discard {
   color: #777777;
   background: #e3e3e3;
+}
+
+@media (min-width: 769px) {
+  .Registration-Form {
+    margin: 30px 75px;
+  }
+
+  .Registration-Form-Divider {
+    margin: 0 75px;
+  }
 }
 
 @media (min-width: 1080px) {

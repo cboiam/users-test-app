@@ -1,0 +1,40 @@
+.Registration-Messages, .Registration-Messages-Info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Registration-Messages {
+    flex-direction: column;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333333;
+}
+
+.Registration-Messages > div {
+    width: 100%;
+    padding: 0 10px;
+    margin-bottom: 40px;
+}
+
+.Registration-Messages-Title {
+    margin-bottom: 15px;
+    margin-top: 0;
+    font-weight: 500;
+}
+
+.Registration-Messages-Icon {
+    margin-right: 20px; 
+    font-size: 55px;
+}
+
+@media (min-width: 1080px) {
+    .Registration-Messages {
+        flex-direction: row;
+    }
+
+    .Registration-Messages > div {
+        width: 33%;
+    }
+}

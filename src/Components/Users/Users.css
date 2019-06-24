@@ -17,6 +17,7 @@
 .Users-Title h1 {
   margin: 0;
   font-weight: normal;
+  font-size: 2.4em;
 }
 
 .Users-Divider {
@@ -59,4 +60,18 @@
 
 .Users-Table-Head {
   padding: 20px 10px;
+}
+
+.Users-Add {
+  display: block;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 20px;
+  background: #eeeeee;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.Users-Add:hover {
+  background: #e3e3e3;
 }

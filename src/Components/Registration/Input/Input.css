@@ -1,5 +1,5 @@
 .Input-Group {
-    margin: 10px 40px 10px 0;
+    margin: 10px 0;
     box-sizing: border-box;
 }
 
@@ -29,4 +29,10 @@
 
 .Input-Field:focus ~ .Input-Instructions {
   visibility: visible;
+}
+
+@media (min-width: 769px) {
+  .Input-Group {
+    margin-right: 40px;
+  }
 }

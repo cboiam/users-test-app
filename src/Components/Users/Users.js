@@ -1,7 +1,9 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import User from "./User/User";
 import "./Users.css";
 import Axios from "axios";
+import Messages from "./Messages/Messages";
+import { Link } from "react-router-dom";
 
 export const rideInGroupOptions = ["Always", "Sometimes", "Never"];
 export const dayOfTheWeekOptions = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "None", "Weekends", "Week days", "Every day"];
@@ -62,44 +64,51 @@ class Users extends Component {
     this.setState({ filteredUsers: users });
   };
 
+
   render() {
     return (
-      <div className="Users">
-        <div className="Users-Header">
-          <div className="Users-Title">
-            <h1>Users</h1>
+      <Fragment>
+        <Messages />
+        <div className="Users">
+          <div className="Users-Header">
+            <div className="Users-Title">
+              <h1>Users</h1>
+            </div>
+            <div className="Users-Item Users-Divider" />
+            <div className="Users-Item Users-Search">
+              <i className="fas fa-search Users-Search-Icon" />
+              <input
+                className="Users-Search-Input"
+                type="text"
+                placeholder="Filter table content"
+                onChange={this.onFilterChange}
+              />
+            </div>
           </div>
-          <div className="Users-Item Users-Divider" />
-          <div className="Users-Item Users-Search">
-            <i className="fas fa-search Users-Search-Icon" />
-            <input
-              className="Users-Search-Input"
-              type="text"
-              placeholder="Filter table content"
-              onChange={this.onFilterChange}
-            />
+          <div className="Users-Table">
+            <table cellSpacing="0" cellPadding="0">
+              <thead>
+                <tr>
+                  <td className="Users-Table-Head">Username</td>
+                  <td className="Users-Table-Head">Name</td>
+                  <td className="Users-Table-Head">E-mail</td>
+                  <td className="Users-Table-Head">City</td>
+                  <td className="Users-Table-Head">Ride in group</td>
+                  <td className="Users-Table-Head">Day of the week</td>
+                  <td className="Users-Table-Head">Posts</td>
+                  <td className="Users-Table-Head">Albums</td>
+                  <td className="Users-Table-Head">Photos</td>
+                  <td className="Users-Table-Head"></td>
+                </tr>
+              </thead>
+              <tbody>{this.mapUsers()}</tbody>
+            </table>
+            <Link to="/users/new" className="Users-Add Primary">
+              <i className="fas fa-plus"></i>
+            </Link>
           </div>
         </div>
-        <div className="Users-Table">
-          <table cellSpacing="0" cellPadding="0">
-            <thead>
-              <tr>
-                <td className="Users-Table-Head">Username</td>
-                <td className="Users-Table-Head">Name</td>
-                <td className="Users-Table-Head">E-mail</td>
-                <td className="Users-Table-Head">City</td>
-                <td className="Users-Table-Head">Ride in group</td>
-                <td className="Users-Table-Head">Day of the week</td>
-                <td className="Users-Table-Head">Posts</td>
-                <td className="Users-Table-Head">Albums</td>
-                <td className="Users-Table-Head">Photos</td>
-                <td className="Users-Table-Head"></td>
-              </tr>
-            </thead>
-            <tbody>{this.mapUsers()}</tbody>
-          </table>
-        </div>
-      </div>
+      </Fragment>
     );
   }
 }

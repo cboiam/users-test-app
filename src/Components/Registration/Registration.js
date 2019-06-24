@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Registration.css";
 import Input, { inputTypes } from "./Input/Input";
 import Option from "./Option/Option";
+import Messages from "./Messages/Messages";
 
 class Registration extends Component {
     state = {
@@ -193,6 +194,8 @@ class Registration extends Component {
                     </div>
                     <div className="Registration-Divider" />
                 </div>
+                <Messages />
+                <div className="Registration-Form-Divider" />
                 <div className="Registration-Form">
                     <form>
                         <div className="Registration-Container">

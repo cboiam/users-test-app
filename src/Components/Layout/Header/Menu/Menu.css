@@ -1,18 +1,21 @@
 .Menu {
-    display: none;
+    height: 0px;
+    transition: height .7s, border .1s .7s, box-shadow .1s .7s;
     position: absolute;
     top: 0;
     right: 0;
     margin-top: 50px;
     width: 130%;
     background: #ffffff;
-    border: 1px solid #cccccc;
     border-radius: 3px;
-    box-shadow: 2px 2px 5px 2px #e3e3e3, -2px -2px 5px 2px #e3e3e3;
+    overflow: hidden;
 }
 
 .Menu.Active {
-    display: block;
+    height: 218px;
+    transition: height .7s;
+    border: 1px solid #cccccc;
+    box-shadow: 2px 2px 5px 2px #e3e3e3, -2px -2px 5px 2px #e3e3e3;
 }
 
 .Menu-Item {

@@ -1,0 +1,41 @@
+.Users-Messages, .Users-Messages > div {
+    display: flex;
+    align-items: flex-end;
+}
+
+.Users-Messages {
+    background: #baebe1;
+    justify-content: space-evenly;
+    text-align: left;
+    padding: 37px 0;
+}
+
+.Users-Messages-Icon {
+    font-size: 40px;
+}
+
+.Users-Messages-Info h2 {
+    margin: 0;
+    color: #333333;
+}
+
+.Users-Messages-Info div {
+    color: #777777;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+@media (min-width: 1080px) {
+    .Users-Messages {
+        justify-content: left;
+        padding: 37px 75px;
+    }
+
+    .Users-Messages > div {
+        margin-right: 60px;
+    }
+
+    .Users-Messages-Icon {
+        margin-right: 20px;
+    }
+}
