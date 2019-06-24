@@ -18,19 +18,22 @@ class Users extends Component {
     filter: "",
     filteredUsers: [],
     posts: [],
-    photos: []
+    photos: [],
+    albums: []
   };
 
   getPosts = () => Axios.get("https://jsonplaceholder.typicode.com/posts");
   getPhotos = () => Axios.get("https://jsonplaceholder.typicode.com/photos");
+  getAlbums = () => Axios.get("https://jsonplaceholder.typicode.com/albums");
 
   componentWillMount() {
-    Axios.all([this.getPosts(), this.getPhotos()])
-      .then(Axios.spread((posts, photos) => {
+    Axios.all([this.getPosts(), this.getPhotos(), this.getAlbums()])
+      .then(Axios.spread((posts, photos, albums) => {
         this.setState({
           filteredUsers: this.props.users,
           posts: posts.data,
-          photos: photos.data
+          photos: photos.data,
+          albums: albums.data
         });
 
         this.filterUsers(this.state.filter);
@@ -41,10 +44,16 @@ class Users extends Component {
     return this.state.filteredUsers.map((user, index) => {
       const isEven = (index + 1) % 2 === 0;
       const posts = this.state.posts.filter(post => post.userId === user.id).length;
+      const albums = this.state.albums.filter(album => album.userId === user.id)
+          .map(album => album.id);
+      const photos = this.state.photos.filter(photo => albums.includes(photo.albumId));
+
       return <User {...user}
         isEven={isEven}
         key={user.id}
         posts={posts}
+        albums={albums.length}
+        photos={photos.length}
         deleteUser={this.props.deleteUser}
       />;
     });
