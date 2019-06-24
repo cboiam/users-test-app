@@ -2,7 +2,8 @@
 Application developed with the purpose of test myself.
 
 # Running the application
-You will need to install the node (https://nodejs.org/en/)
+You will need to install the node (https://nodejs.org/en/).
+
 Then in project folter run the following commands:
     
     npm install
