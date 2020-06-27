@@ -1,14 +1,13 @@
 # users-test-app
-Application developed with the purpose of test myself.
+Application built to test myself in a challenge proposed by Venturus in a limited time of three days, to see the requirements see the following [file](https://github.com/cboiam/users-test-app/blob/master/Instructions.pdf).
 
-# Running the application
-You will need to install the node (https://nodejs.org/en/).
+### Running the application
 
-Then in project folter run the following commands:
+In project folter run the following commands:
     
-    npm install
-    npm run build
-    npm install -g serve
-    serve -s build
+```
+$ npm install
+$ npm start
+```
     
-Now, the production version of the project is up and running at http://localhost:5000/.
+Now, the development version of the project is up and running at http://localhost:5000.
