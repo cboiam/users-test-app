@@ -7,6 +7,8 @@ import Registration from "./Components/Registration/Registration";
 import Breadcrumb from "./Components/Layout/Breadcrumb/Breadcrumb";
 import Header from "./Components/Layout/Header/Header";
 
+const baseUrl = process.env.REACT_APP_BASE_URL ?? "";
+
 class App extends Component {
   state = {
     users: []
@@ -50,10 +52,10 @@ class App extends Component {
       <BrowserRouter>
         <div className="App" onClick={this.closeMenu}>
           <Header />
-          <Route path="/" component={props => <Breadcrumb {...props} />} />
-          <Route path="/" exact component={() => <Redirect to="/users" />} />
-          <Route path="/users" exact component={() => <Users users={this.state.users} deleteUser={this.deleteUser} />} />
-          <Route path="/users/new" component={() => <Registration addUser={this.addUser} />} />
+          <Route path={`${baseUrl}/`} component={props => <Breadcrumb {...props} />} />
+          <Route path={`${baseUrl}/`} exact component={() => <Redirect to={`${baseUrl}/users`} />} />
+          <Route path={`${baseUrl}/users`} exact component={() => <Users users={this.state.users} deleteUser={this.deleteUser} />} />
+          <Route path={`${baseUrl}/users/new`} component={() => <Registration addUser={this.addUser} />} />
         </div>
       </BrowserRouter>
     );

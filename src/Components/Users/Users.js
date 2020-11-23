@@ -5,6 +5,8 @@ import Axios from "axios";
 import Messages from "./Messages/Messages";
 import { Link } from "react-router-dom";
 
+const baseUrl = process.env.REACT_APP_BASE_URL ?? "";
+
 export const rideInGroupOptions = ["Always", "Sometimes", "Never"];
 export const dayOfTheWeekOptions = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "None", "Weekends", "Week days", "Every day"];
 
@@ -112,7 +114,7 @@ class Users extends Component {
               </thead>
               <tbody>{this.mapUsers()}</tbody>
             </table>
-            <Link to="/users/new" className="Users-Add Primary">
+            <Link to={`${baseUrl}/users/new`} className="Users-Add Primary">
               <i className="fas fa-plus"></i>
             </Link>
           </div>
